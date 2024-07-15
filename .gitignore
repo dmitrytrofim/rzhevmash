@@ -1,0 +1,4 @@
+/node_modules/*
+/archive/nogit/*
+/rzhevmash/*
+package-lock.json

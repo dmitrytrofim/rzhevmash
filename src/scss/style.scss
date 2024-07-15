@@ -1,0 +1,141 @@
+//@mark functions
+@function em($a) {
+ @return calc($a/16) + em;
+}
+@function emnst($a, $b) {
+ @return calc($a/$b) + em;
+}
+@function rem($a) {
+ @return calc($a/16) + rem;
+}
+@function lhcalc($a, $b) {
+ @return calc(ceil(calc($a / $b * 100)) / 100);
+}
+@function asprat($a, $b) {
+ @return calc(ceil(calc($a / $b * 10000)) / 10000);
+}
+
+//@mark mixin
+// @mixin replace-text($image, $x: 50%, $y: 50%) {
+//  text-indent: -99999em;
+//  overflow: hidden;
+//  text-align: left;
+//  background: {
+//   image: $image;
+//   repeat: no-repeat;
+//   position: $x $y;
+//  }
+// }
+// .mail-icon {
+//  @include replace-text(url('/images/mail.svg'), 0);
+// }
+
+//@mark var scss
+// $scrvw: ;
+
+//@mark var css
+:root {
+ // font-family
+ --font-geometria: 'Geometria', sans-serif;
+ --font-montserrat: 'Montserrat', sans-serif;
+
+ // text colors
+ --t-fff: #fff;
+ --t-000: #000;
+ --t-101010: #101010;
+ --t-22B24C: #22b24c;
+
+ // background colors
+ --b-fff: #fff;
+ --b-000: #000;
+ --b-101010: #101010;
+ --b-22B24C: #22b24c;
+ // --b-grad-red: ;
+
+ // font-size
+ --sz-14: 14px;
+ --sz-16: 16px;
+ --sz-20: 20px;
+ --sz-24: 24px;
+ --sz-32: 32px;
+ --sz-40: 40px;
+ --sz-48: 48px;
+ --sz-128: 128px;
+}
+
+//@mark start
+@import './different/fonts';
+@import './different/normalize';
+@import './different/custom-reset';
+@import '../../node_modules/swiper/swiper-bundle';
+// @import '../../node_modules/@splidejs/splide/dist/css/splide.min';
+// @import '../../node_modules/locomotive-scroll/dist/locomotive-scroll';
+// @import '../../node_modules/photoswipe/dist/photoswipe';
+
+//@mark scroll
+::-webkit-scrollbar-button {
+ width: 6px;
+ height: 0px;
+}
+::-webkit-scrollbar-track {
+ background-color: var(--b-fff);
+ box-shadow: 0px 0px 3px var(--b-fff) inset;
+}
+::-webkit-scrollbar-thumb {
+ border-radius: 2px;
+ background-color: var(--b-000);
+ background-position: center;
+ background-repeat: no-repeat;
+}
+::-webkit-resizer {
+ width: 7px;
+ height: 0px;
+}
+::-webkit-scrollbar {
+ width: 7px;
+}
+
+//@mark html
+// html {
+//  font-size: 16px !important;
+// }
+
+//@mark page
+body.page {
+ font-family: var(--font-montserrat);
+ font-weight: 400;
+ font-size: var(--sz-16);
+ line-height: 1.2;
+ color: var(--t-101010);
+ background-color: var(--b-fff);
+ &.j-lock {
+  overflow: hidden;
+ }
+}
+
+//@mark wrapper
+.wrapper {
+ position: relative;
+ display: grid;
+ min-height: 100dvh;
+ grid-template-columns: minmax(300px, 1fr);
+ grid-template-rows: auto 1fr auto;
+ overflow: hidden;
+}
+
+//@mark container
+.container {
+ width: 100%;
+ max-width: 1920px;
+ margin: 0 auto;
+ padding: 0 10px;
+}
+
+//@mark sections
+@import './components';
+@import './s1-header';
+// @import './s2-aside';
+@import './main-1';
+@import './s3-footer';
+@import './s4-animation';
+// @import './s5-wpchange';
