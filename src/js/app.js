@@ -46,7 +46,6 @@ class App {
       this.mouse.classList.remove('j-black');
      }
      this.mainSlider.btns.forEach((btn) => {
-      console.log(1);
       btn.classList.remove('j-active');
       if (btn.dataset.main - 1 === e.activeIndex) btn.classList.add('j-active');
      });

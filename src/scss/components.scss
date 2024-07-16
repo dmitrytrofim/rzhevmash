@@ -68,6 +68,9 @@
   background: url('/src/img/svg/sprite.svg#btn-icon') center / contain no-repeat;
   transition: right 0.2s linear 0s;
  }
+ &.m-dark {
+  border-color: var(--b-101010);
+ }
  &:hover {
   background-color: var(--b-22B24C);
   border: 1px solid var(--b-22B24C);
@@ -75,6 +78,11 @@
   & i {
    right: calc(98% - 48px);
    background-image: url('/src/img/svg/sprite.svg#btn-icon-w');
+  }
+  &.m-dark {
+   & span {
+    color: var(--t-fff);
+   }
   }
  }
 }
@@ -138,5 +146,28 @@
  }
  @media screen and (max-width: 1900px) {
   right: 5%;
+ }
+}
+.line-main {
+ position: relative;
+ &::after {
+  position: absolute;
+  content: '';
+  left: 33.33%;
+  top: 0;
+  width: 1px;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+ }
+ &::before {
+  position: absolute;
+  content: '';
+  right: 33.33%;
+  top: 0;
+  width: 1px;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.1);
+  pointer-events: none;
  }
 }
