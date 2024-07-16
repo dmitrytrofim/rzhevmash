@@ -1826,6 +1826,7 @@ body.page.j-lock {
   padding: 25px;
   border-radius: 35px;
   overflow: hidden;
+  background-color: var(--b-fff);
 }
 .benefits__card:hover .benefits__card-bg {
   opacity: 1;
@@ -1859,8 +1860,10 @@ body.page.j-lock {
   animation: bg-rotate 3s linear 0s infinite;
 }
 .benefits__card-inner {
+  min-height: 300px;
   position: relative;
   display: flex;
+  align-items: center;
   gap: 45px;
   background-color: var(--b-fff);
   border-radius: 35px;
@@ -1871,6 +1874,7 @@ body.page.j-lock {
   flex-direction: row-reverse;
 }
 .benefits__card-visual {
+  align-self: stretch;
   flex: 1 0 525px;
 }
 .benefits__card-visual-img {
