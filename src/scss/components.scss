@@ -34,3 +34,109 @@
 .sect-gap {
  margin-bottom: 100px;
 }
+//@mark title
+.title {
+ font-size: var(--sz-128);
+ font-weight: 800;
+ text-transform: uppercase;
+ & span {
+  color: var(--t-22B24C);
+ }
+ &.m-min {
+  font-size: var(--sz-48);
+  text-align: right;
+ }
+}
+//@mark btn
+.btn {
+ position: relative;
+ border: 1px solid var(--b-fff);
+ border-radius: 15px;
+ padding: 20px 90px 20px 35px;
+ transition: padding 0.2s linear 0s, background-color 0.2s linear 0s,
+  border-color 0.2s linear 0s;
+ & span {
+  font-weight: 300;
+ }
+ & i {
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  transform: translateY(-50%);
+  width: 48px;
+  aspect-ratio: 1;
+  background: url('/src/img/svg/sprite.svg#btn-icon') center / contain no-repeat;
+  transition: right 0.2s linear 0s;
+ }
+ &:hover {
+  background-color: var(--b-22B24C);
+  border: 1px solid var(--b-22B24C);
+  padding: 20px 35px 20px 90px;
+  & i {
+   right: calc(98% - 48px);
+   background-image: url('/src/img/svg/sprite.svg#btn-icon-w');
+  }
+ }
+}
+//@mark main-navigation
+.main-navigation {
+ & {
+  position: fixed;
+  bottom: 120px;
+  left: calc(50% - 870px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 25px;
+  color: var(--t-fff);
+  z-index: 50;
+  &.j-black {
+   color: var(--t-101010);
+   & button::after {
+    background-color: var(--b-101010);
+   }
+  }
+  @media screen and (max-width: 1920px) {
+   left: 5%;
+  }
+ }
+ &__btn {
+  position: relative;
+  opacity: 0.5;
+  &::after {
+   position: absolute;
+   content: '';
+   top: 50%;
+   left: -15px;
+   height: 1px;
+   width: 25px;
+   transform: translateX(-100%);
+   background-color: var(--b-fff);
+  }
+  &.j-active {
+   font-weight: 600;
+   opacity: 1;
+   &::after {
+    width: 100vw;
+   }
+  }
+ }
+}
+//@mark mouse-wheel
+.mouse-wheel {
+ position: fixed;
+ bottom: 140px;
+ right: calc(50% - 870px);
+ display: flex;
+ width: 28px;
+ aspect-ratio: 1;
+ background: url('/src/img/svg/sprite.svg#mouse') center / contain no-repeat;
+ z-index: 50;
+ &.j-black {
+  background: url('/src/img/svg/sprite.svg#mouse-black') center / contain
+   no-repeat;
+ }
+ @media screen and (max-width: 1900px) {
+  right: 5%;
+ }
+}
