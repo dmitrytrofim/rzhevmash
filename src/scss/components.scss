@@ -159,6 +159,7 @@
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.1);
   pointer-events: none;
+  z-index: -1;
  }
  &::before {
   position: absolute;
@@ -169,5 +170,24 @@
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.1);
   pointer-events: none;
+  z-index: -1;
+ }
+}
+//@mark cursor
+.cursor {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 25px;
+ aspect-ratio: 1;
+ border-radius: 50%;
+ border: 2px solid #000;
+ background-color: gray;
+ z-index: 2000;
+ opacity: 0.5;
+ pointer-events: none;
+ transition: transform 0.1s linear 0s;
+ &.j-click {
+  transform: scale(2);
  }
 }

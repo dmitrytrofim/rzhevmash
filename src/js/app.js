@@ -13,6 +13,7 @@ class App {
    main: document.querySelector('.main__slider'),
    nav: document.querySelector('.main-navigation'),
    btns: document.querySelectorAll('.main-navigation__btn'),
+   allSlides: document.querySelectorAll('.main__slide'),
   };
   this.greetSlider = {
    main: document.querySelector('.greet__slider'),
@@ -27,6 +28,7 @@ class App {
    menu: document.querySelector('.header__menu'),
   };
   this.mouse = document.querySelector('.mouse-wheel');
+  this.cursor = document.querySelector('.cursor');
  }
  //@mark mainSlider
  initMainSlider() {
@@ -58,6 +60,21 @@ class App {
     mainSlider.slideTo(btn.dataset.main - 1);
    });
   });
+
+  this.mainSlider.allSlides.forEach((slide) => {
+   let top = false;
+   if (slide.classList.contains('swiper-no-mousewheel')) {
+    slide.addEventListener('wheel', (e) => {
+     if (slide.scrollTop === 0) {
+      setTimeout(() => {
+       top = true;
+      }, 50);
+     }
+     if (top && slide.scrollTop === 0 && e.deltaY < 0) mainSlider.slidePrev();
+     top = false;
+    });
+   }
+  });
  }
  //@mark greetSlider
  initGreetSlider() {
@@ -88,11 +105,32 @@ class App {
    this.header.main.classList.toggle('j-menu');
   });
  }
+ //@mark initCursor
+ initCursor() {
+  const widthCursor = this.cursor.getBoundingClientRect().width;
+  const heightCursor = this.cursor.getBoundingClientRect().height;
+  window.addEventListener('mousemove', (e) => {
+   this.cursor.style.cssText = `
+   top: ${window.scrollY + e.clientY - widthCursor / 2}px;
+   left: ${e.clientX - heightCursor / 2}px;
+   `;
+
+   if (
+    e.target.closest('a')?.tagName.toLowerCase() === 'a' ||
+    e.target.closest('button')?.tagName.toLowerCase() === 'button'
+   ) {
+    this.cursor.classList.add('j-click');
+   } else {
+    this.cursor.classList.remove('j-click');
+   }
+  });
+ }
  //@mark start
  start() {
   if (this.mainSlider.main) this.initMainSlider();
   if (this.greetSlider.main) this.initGreetSlider();
   if (this.burger.btn) this.initBurger();
+  if (this.cursor) this.initCursor();
  }
 }
 const app = new App().start();
